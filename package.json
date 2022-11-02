@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@finos/perspective": "^0.4.8",
     "@finos/perspective": "^1.6.2",
     "@finos/perspective-viewer": "^1.6.2",
     "@finos/perspective-viewer-d3fc": "^1.6.2",
