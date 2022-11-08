@@ -42,3 +42,4 @@ export class DataManipulator {
             trigger_alert: (ratio > upperBound || ratio < lowerBound) ? ratio : undefined,
         };
     }
+}
