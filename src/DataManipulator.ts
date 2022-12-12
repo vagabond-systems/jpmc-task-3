@@ -1,4 +1,4 @@
-import { ServerRespond } from './DataStreamer';
+import {ServerRespond} from './DataStreamer';
 
 export interface Row {
   price_abc: number,
