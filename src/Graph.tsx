@@ -24,6 +24,7 @@ class Graph extends Component<IProps, {}> {
         const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
 
         const schema = {
+            //changed schema values
             price_abc: 'float',
             price_def: 'float',
             ratio: 'float',
@@ -31,6 +32,7 @@ class Graph extends Component<IProps, {}> {
             upper_bound: 'float',
             lower_bound: 'float',
             trigger_alert: 'float'
+            
         };
 
         if (window.perspective && window.perspective.worker()) {
@@ -43,6 +45,7 @@ class Graph extends Component<IProps, {}> {
             elem.setAttribute('row-pivots', '["timestamp"]');
             elem.setAttribute('columns', '["ratio", "lower_bound", "upper_bound", "trigger_alert"]');
             elem.setAttribute('aggregates', JSON.stringify({
+                //modified the schema values here also
                 price_abc: 'avg',
                 price_def: 'avg',
                 ratio: 'avg',
@@ -59,6 +62,7 @@ class Graph extends Component<IProps, {}> {
             this.table.update([
                 DataManipulator.generateRow(this.props.data),
             ] as unknown as TableData);
+            //added tabledata above
         }
     }
 }
