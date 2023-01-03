@@ -23,26 +23,31 @@ class Graph extends Component<IProps, {}> {
     const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
 
     const schema = {
-      stock: 'string',
-      top_ask_price: 'float',
-      top_bid_price: 'float',
-      timestamp: 'date',
+price abc: 'float',
+price def: 'float',
+ratio: 'float',
+upper bound: 'float',
+lower bound: 'float',
+trigger alert: 'float',
+timestamp: 'date',
     };
 
-    if (window.perspective && window.perspective.worker()) {
+    if (window.perspective) {
       this.table = window.perspective.worker().table(schema);
     }
     if (this.table) {
       // Load the `table` in the `<perspective-viewer>` DOM reference.
       elem.load(this.table);
       elem.setAttribute('view', 'y_line');
-      elem.setAttribute('column-pivots', '["stock"]');
+ 
       elem.setAttribute('row-pivots', '["timestamp"]');
-      elem.setAttribute('columns', '["top_ask_price"]');
+     elem.setAttribute('columns', '["ratio","lower_bound","upper_bound","trigger_alert"]');
       elem.setAttribute('aggregates', JSON.stringify({
-        stock: 'distinctcount',
-        top_ask_price: 'avg',
-        top_bid_price: 'avg',
+        price_abc: 'avg',
+        price_def: 'avg',
+        ratio: 'avg',
+        upper_bound: 'avg',
+        lower_bound: 'avg',
         timestamp: 'distinct count',
       }));
     }
